@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynchronous JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        details {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #2c2c2c;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #b8d7ff;
+        }
+
+        summary:hover {
+            color: #a1c4ff;
+        }
+
+        p,
+        ul {
+            margin: 10px 0;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        code,
+        pre {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            color: #d2a8ff;
+            font-family: "Courier New", monospace;
+            font-size: 14px;
+            display: block;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Asynchronous JavaScript</h1>
+
+    <!-- Synchronous Code -->
+    <details>
+        <summary>1. Synchronous Code</summary>
+        <p>Synchronous code is executed sequentially, one line at a time. Each operation must finish before the next one
+            begins.</p>
+        <pre>
+// Example: Synchronous Code
+console.log("Task 1: Start boiling water...");
+console.log("Task 2: Waiting for water to boil...");
+console.log("Task 3: Water boiled. Make tea!");
+
+// Output:
+// Task 1: Start boiling water...
+// Task 2: Waiting for water to boil...
+// Task 3: Water boiled. Make tea!
+        </pre>
+    </details>
+
+    <!-- I/O Heavy Operations -->
+    <details>
+        <summary>2. I/O Heavy Operations</summary>
+        <p>I/O heavy operations involve tasks where data is read from or written to an external source, like a file,
+            database, or network.</p>
+        <ul>
+            <li>Reading a large file from disk</li>
+            <li>Fetching data from an API</li>
+            <li>Saving logs to a database</li>
+        </ul>
+        <pre>
+// Example: Reading a file asynchronously
+const fs = require("fs");
+fs.readFile("file.txt", "utf-8", (err, data) => {
+    if (err) {
+        console.error("Error reading file:", err);
+        return;
+    }
+    console.log("File Content:", data);
+});
+        </pre>
+    </details>
+
+    <!-- CPU-Bound vs I/O-Bound Tasks -->
+    <details>
+        <summary>3. CPU-Bound vs I/O-Bound Tasks</summary>
+        <ul>
+            <li><strong>CPU-Bound Tasks:</strong> Limited by processing power, requiring intensive computation.</li>
+            <li><strong>I/O-Bound Tasks:</strong> Limited by system input/output operations, such as file or network
+                access.</li>
+        </ul>
+        <pre>
+// Example of CPU-Bound Task
+function computePrime(limit) {
+    let primes = [];
+    for (let i = 2; i <= limit; i++) {
+        let isPrime = true;
+        for (let j = 2; j <= Math.sqrt(i); j++) {
+            if (i % j === 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime) primes.push(i);
+    }
+    return primes;
+}
+console.log(computePrime(100000)); // Computes prime numbers
+
+// Example of I/O-Bound Task
+fetch("https://api.example.com/data")
+    .then(response => response.json())
+    .then(data => console.log(data));
+        </pre>
+    </details>
+
+    <!-- Real-World Tasks -->
+    <details>
+        <summary>4. Handling Real-World I/O-Bound Tasks</summary>
+        <p>Consider managing three tasks:</p>
+        <ul>
+            <li>Boiling water</li>
+            <li>Doing laundry</li>
+            <li>Sending a package</li>
+        </ul>
+        <p>You can handle them:</p>
+        <ul>
+            <li><strong>Synchronously:</strong> Complete one task fully before moving to the next.</li>
+            <li><strong>Concurrently:</strong> Switch between tasks as they progress.</li>
+            <li><strong>Asynchronously:</strong> Start all tasks and handle whichever completes first.</li>
+        </ul>
+        <pre>
+// Example: Asynchronous Real-World Tasks
+async function boilWater() {
+    return new Promise(resolve => setTimeout(() => resolve("Water boiled"), 3000));
+}
+
+async function doLaundry() {
+    return new Promise(resolve => setTimeout(() => resolve("Laundry done"), 5000));
+}
+
+async function sendPackage() {
+    return new Promise(resolve => setTimeout(() => resolve("Package sent"), 2000));
+}
+
+Promise.all([boilWater(), doLaundry(), sendPackage()])
+    .then(results => console.log("All tasks completed:", results));
+        </pre>
+    </details>
+
+    <!-- Callbacks -->
+    <details>
+        <summary>5. Asynchronous Code & Callbacks</summary>
+        <p>Callbacks are functions passed as arguments to other functions, executed when the asynchronous operation is
+            complete.</p>
+        <pre>
+// Example: Callback Function
+function fetchData(callback) {
+    setTimeout(() => {
+        const data = "Server Data";
+        callback(data);
+    }, 2000);
+}
+
+fetchData(data => console.log(data)); // Logs "Server Data" after 2 seconds
+        </pre>
+    </details>
+
+    <!-- setTimeout -->
+    <details>
+        <summary>6. setTimeout</summary>
+        <p><code>setTimeout</code> schedules code to run after a specified delay.</p>
+        <pre>
+// Example: setTimeout
+console.log("Task 1: Start");
+
+setTimeout(() => {
+    console.log("Task 2: Executed after 2 seconds");
+}, 2000);
+
+console.log("Task 3: End");
+        </pre>
+    </details>
+
+    <!-- JavaScript Async Architecture -->
+    <details>
+        <summary>7. JavaScript Architecture for Async Code</summary>
+        <ul>
+            <li><strong>Call Stack:</strong> Keeps track of function calls. Works on a Last In, First Out (LIFO) basis.
+            </li>
+            <li><strong>Web APIs:</strong> Handle async operations like timers, network requests, and DOM events.</li>
+            <li><strong>Callback Queue:</strong> Queues callbacks waiting to be executed.</li>
+            <li><strong>Event Loop:</strong> Manages execution by transferring tasks from the callback queue to the call
+                stack.</li>
+        </ul>
+        <pre>
+// Example to illustrate Event Loop
+console.log("Start");
+
+setTimeout(() => {
+    console.log("Task from Web API");
+}, 0);
+
+console.log("End");
+
+// Output:
+// Start
+// End
+// Task from Web API
+        </pre>
+    </details>
+</body>
+
+</html>

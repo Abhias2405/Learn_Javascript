@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Variables</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        details {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #2c2c2c;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #b8d7ff;
+        }
+
+        summary:hover {
+            color: #a1c4ff;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        code {
+            background-color: #333;
+            padding: 2px 5px;
+            border-radius: 4px;
+            color: #ffcc99;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        pre {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            color: #ffcc99;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>JavaScript Variables</h1>
+
+    <!-- What is a variable -->
+    <details>
+        <summary>1. What is a Variable?</summary>
+        <p>
+            A variable is a container that stores a value. In JavaScript, you can declare a variable using
+            <code>var</code>,
+            <code>let</code>, or <code>const</code>. For example:
+        </p>
+        <pre><code>
+var a = 4; // Here, 'a' is the identifier, and '4' is the literal.
+        </code></pre>
+        <p>
+            Variables allow you to store and manipulate data in your programs. They can hold different types of data,
+            such as numbers, strings, or objects.
+        </p>
+    </details>
+
+    <!-- Declaring Variables -->
+    <details>
+        <summary>2. Declaring Variables: <code>var</code>, <code>let</code>, and <code>const</code></summary>
+        <p>Variables in JavaScript can be declared using three keywords:</p>
+        <ul>
+            <li><strong>var:</strong> Declares a variable globally or locally (if inside a function). It can be
+                redefined and updated.</li>
+            <li><strong>let:</strong> Declares a block-scoped variable, meaning it is limited to the block, statement,
+                or expression in which it's used. It can be updated but not redefined.</li>
+            <li><strong>const:</strong> Declares a block-scoped constant. Its value cannot be changed or redefined.</li>
+        </ul>
+        <p><strong>Examples:</strong></p>
+        <pre><code>
+// var example:
+var x = 10;
+console.log(x); // Output: 10
+x = 20; 
+console.log(x); // Output: 20 (var can be updated)
+
+// let example:
+let y = 15;
+console.log(y); // Output: 15
+y = 25; 
+console.log(y); // Output: 25 (let can be updated)
+
+// const example:
+const z = 30;
+console.log(z); // Output: 30
+// z = 40; // Error: Assignment to constant variable.
+        </code></pre>
+        <p>
+            Use <code>let</code> and <code>const</code> in modern JavaScript development to avoid unexpected behaviors
+            caused by <code>var</code>'s global scope.
+        </p>
+    </details>
+
+    <!-- Variable Naming Rules -->
+    <details>
+        <summary>3. Variable Naming Rules</summary>
+        <p>When naming variables in JavaScript, follow these rules:</p>
+        <ul>
+            <li>Variable names can contain letters, digits, underscores (<code>_</code>), and dollar signs
+                (<code>$</code>).</li>
+            <li>Variable names must begin with a letter, underscore (<code>_</code>), or dollar sign (<code>$</code>),
+                but cannot begin with a digit.</li>
+            <li>JavaScript variable names are case-sensitive (e.g., <code>myVariable</code> and <code>myvariable</code>
+                are different).</li>
+            <li>Reserved words (like <code>let</code>, <code>class</code>, and <code>return</code>) cannot be used as
+                variable names.</li>
+            <li>Use meaningful names that describe the purpose of the variable (e.g., use <code>totalAmount</code>
+                instead of <code>x</code>).</li>
+        </ul>
+        <p><strong>Examples:</strong></p>
+        <pre><code>
+// Valid variable names:
+let _counter = 0;
+let $price = 100;
+let userName = "John";
+
+// Invalid variable names:
+// let 1value = 5; // Error: Variable name cannot start with a digit.
+// let return = 10; // Error: Cannot use reserved keywords.
+        </code></pre>
+    </details>
+
+    <!-- Data Types -->
+    <details>
+        <summary>4. Data Types</summary>
+        <p>JavaScript supports several data types, which can be broadly categorized into:</p>
+        <ul>
+            <li><strong>Primitive Data Types:</strong> Represent single values.</li>
+            <ul>
+                <li><code>Number</code>: Represents numeric values (e.g., <code>42</code>, <code>3.14</code>).</li>
+                <li><code>String</code>: Represents textual data (e.g., <code>"Hello"</code>, <code>'World'</code>).
+                </li>
+                <li><code>Boolean</code>: Represents logical values (<code>true</code> or <code>false</code>).</li>
+                <li><code>Undefined</code>: Indicates a variable that has been declared but not initialized.</li>
+                <li><code>Null</code>: Represents an empty or non-existent value.</li>
+                <li><code>Symbol</code>: Represents unique identifiers (introduced in ES6).</li>
+                <li><code>BigInt</code>: Represents large integers beyond the safe <code>Number</code> range (introduced
+                    in ES11).</li>
+            </ul>
+            <li><strong>Non-Primitive (Reference) Data Types:</strong> Objects, arrays, and functions are included in
+                this category.</li>
+        </ul>
+        <p><strong>Examples:</strong></p>
+        <pre><code>
+// Primitive Data Types:
+let age = 25; // Number
+let name = "Alice"; // String
+let isLoggedIn = true; // Boolean
+let address; // Undefined
+let nothing = null; // Null
+let uniqueId = Symbol("id"); // Symbol
+let largeNumber = 123456789012345678901234567890n; // BigInt
+
+// Non-Primitive Data Type (Object):
+let user = { firstName: "John", lastName: "Doe" };
+
+// Array:
+let numbers = [1, 2, 3, 4];
+
+// Function:
+function greet() {
+    return "Hello!";
+}
+        </code></pre>
+    </details>
+
+
+    <details>
+        <summary>5. Complex Data Types</summary>
+        <p>JavaScript also supports complex data types, such as objects, arrays, and combinations of the two. These
+            types allow for the creation of more structured and dynamic data structures.</p>
+
+        <h3>1. Array of Objects</h3>
+        <p>You can store multiple objects inside an array, making it easier to manage related pieces of data.</p>
+        <pre><code>
+// Example: Array of Objects
+const users = [
+    {
+        name: "Aryan",
+        age: 20
+    },
+    {
+        name: "Priya",
+        age: 22
+    }
+];
+
+// Accessing an object in the array
+const user1 = users[0]; // First object in the array
+console.log(user1); // Output: { name: "Aryan", age: 20 }
+
+// Accessing a property of an object in the array
+const user1Age = users[0].age;
+console.log(user1Age); // Output: 20
+        </code></pre>
+
+        <h3>2. Nested Objects</h3>
+        <p>Objects can have other objects as properties, allowing for nested structures.</p>
+        <pre><code>
+// Example: Nested Object
+const user1 = {
+    name: "Rohan",
+    age: 25,
+    address: {
+        city: "Mumbai",
+        country: "India",
+        street: "123 Main Street"
+    }
+};
+
+// Accessing a nested property
+const city = user1.address.city;
+console.log(city); // Output: Mumbai
+        </code></pre>
+
+        <p>These complex data types are extremely useful for creating and managing structured data, especially when
+            working with APIs or databases.</p>
+    </details>
+
+
+</body>
+
+</html>

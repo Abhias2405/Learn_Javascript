@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Features Overview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        details {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #2c2c2c;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #b8d7ff;
+        }
+
+        summary:hover {
+            color: #a1c4ff;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        code {
+            background-color: #333;
+            padding: 2px 5px;
+            border-radius: 4px;
+            color: #ffcc99;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        pre {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            color: #ffcc99;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>JavaScript Features Overview {Basics}</h1>
+
+    <!-- Interpreted -->
+    <details>
+        <summary>1. Interpreted Language</summary>
+        <p>
+            JavaScript is an interpreted language, meaning it's executed line-by-line at runtime by the JavaScript
+            engine in the browser or server environment, rather than being compiled into machine code beforehand.
+        </p>
+        <p>
+            Computers only understand machine code, represented as 0s and 1s. A program running in the RAM is converted
+            into this format by interpreters or compilers. Interpreters like the one used in JavaScript process code
+            line by line.
+        </p>
+        <p><strong>Upsides:</strong></p>
+        <ul>
+            <li>No need for a separate compilation step before execution, making development faster.</li>
+            <li>It allows immediate feedback, making it ideal for web development and prototyping.</li>
+            <li>Code is portable and can be run in any environment with a JavaScript engine (browsers, Node.js).</li>
+        </ul>
+        <p><strong>Downsides:</strong></p>
+        <ul>
+            <li>Execution can be slower compared to compiled languages like C++ or Java due to interpretation overhead.
+            </li>
+            <li>More prone to runtime errors, which can impact performance and stability.</li>
+            <li>Security vulnerabilities may arise since source code is directly accessible.</li>
+        </ul>
+    </details>
+
+    <!-- Dynamically Typed -->
+    <details>
+        <summary>2. Dynamically Typed</summary>
+        <p>
+            In JavaScript, variables are not tied to any specific data type. Types are determined at runtime and can
+            change as the program executes.
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre><code>
+var a = 1;
+a = "Abhi"; 
+a = true;
+
+console.log(a);  // Output: true
+  </code></pre>
+        <p><strong>Upsides:</strong></p>
+        <ul>
+            <li>Flexibility: Variables can hold any type of data without restrictions.</li>
+            <li>Fewer lines of code since there's no need to declare types explicitly.</li>
+        </ul>
+        <p><strong>Downsides:</strong></p>
+        <ul>
+            <li>Increased chance of bugs due to unexpected type changes.</li>
+            <li>Debugging can be more difficult as the type of variables can change dynamically.</li>
+            <li>Performance may be slower due to type checks at runtime.</li>
+        </ul>
+    </details>
+
+    <!-- Single-threaded -->
+    <details>
+        <summary>3. Single-threaded</summary>
+        <p>
+            JavaScript operates in a single-threaded environment, which means it processes one task at a time. Even
+            though JavaScript is single-threaded, it can handle asynchronous tasks through mechanisms like event loops
+            and callbacks.
+        </p>
+        <p>
+            Applications reside on the SSD and are loaded into RAM for execution. In the RAM, everything is represented
+            as 0s and 1s. The JavaScript interpreter processes code line by line, allowing it to partially execute code
+            up to the point where errors occur.
+        </p>
+        <p><strong>Upsides:</strong></p>
+        <ul>
+            <li>Simple concurrency model: No need to worry about issues like deadlocks or race conditions typically
+                found in multi-threaded programming.</li>
+            <li>Event-driven programming makes handling user interactions and asynchronous tasks easier.</li>
+        </ul>
+        <p><strong>Downsides:</strong></p>
+        <ul>
+            <li>Limited ability to utilize multi-core processors efficiently.</li>
+            <li>Long-running tasks can block the execution thread, causing performance issues.</li>
+        </ul>
+    </details>
+
+    <!-- Garbage Collected -->
+    <details>
+        <summary>4. Garbage Collected</summary>
+        <p>
+            JavaScript automatically manages memory through garbage collection, which periodically frees memory used by
+            objects that are no longer in use.
+        </p>
+        <p><strong>Upsides:</strong></p>
+        <ul>
+            <li>Prevents memory leaks by automatically reclaiming memory.</li>
+            <li>Developers don’t need to manually manage memory allocation and deallocation.</li>
+        </ul>
+        <p><strong>Downsides:</strong></p>
+        <ul>
+            <li>Garbage collection can introduce slight performance overhead.</li>
+            <li>It’s not always immediate, so memory may not be freed as soon as it's no longer needed.</li>
+        </ul>
+    </details>
+
+    <!-- ECMAScript -->
+    <details>
+        <summary>5. ECMAScript (ES)</summary>
+        <p>
+            ECMAScript is the standardized scripting language that JavaScript is based on. The evolution of JavaScript
+            is tracked through versions of ECMAScript, such as ES5, ES6 (also known as ES2015), and beyond.
+        </p>
+        <p>
+            Compilers convert high-level languages (like JavaScript) into machine code (0s and 1s). Unlike compilers
+            that process the entire code at once, JavaScript interpreters process it line by line.
+        </p>
+        <p><strong>Key Features of ES6 and later:</strong></p>
+        <ul>
+            <li>Arrow functions: Concise syntax for writing functions.</li>
+            <li>Let and const: Block-scoped variables and constants.</li>
+            <li>Classes: A cleaner syntax for defining objects and inheritance.</li>
+            <li>Promises: Built-in support for asynchronous programming.</li>
+        </ul>
+        <p>ECMAScript continues to evolve, bringing new features and improvements with each release, ensuring JavaScript
+            remains powerful and modern.</p>
+    </details>
+
+</body>
+
+</html>

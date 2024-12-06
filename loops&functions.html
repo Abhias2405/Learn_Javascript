@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Loops and Functions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        details {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #2c2c2c;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #b8d7ff;
+        }
+
+        summary:hover {
+            color: #a1c4ff;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        code {
+            background-color: #333;
+            padding: 2px 5px;
+            border-radius: 4px;
+            color: #ffcc99;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        pre {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            color: #ffcc99;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>JavaScript Loops and Functions</h1>
+
+    <!-- Loops -->
+    <details>
+        <summary>1. Loops</summary>
+        <p>Loops are used to execute a block of code repeatedly, either a fixed number of times or until a condition is
+            met.</p>
+        <h3>Types of Loops:</h3>
+
+        <!-- For Loop -->
+        <h4>1. For Loop</h4>
+        <p>Used when the number of iterations is known beforehand.</p>
+        <pre><code>
+// Example: Print numbers from 1 to 5
+for (let i = 1; i <= 5; i++) {
+    console.log(i);
+}
+        </code></pre>
+
+        <!-- For...in Loop -->
+        <h4>2. For...in Loop</h4>
+        <p>Used to iterate over the properties of an object.</p>
+        <pre><code>
+// Example: Iterating over object properties
+const user = { name: "John", age: 30, country: "USA" };
+for (let key in user) {
+    console.log(key + ": " + user[key]);
+}
+        </code></pre>
+
+        <!-- For...of Loop -->
+        <h4>3. For...of Loop</h4>
+        <p>Used to iterate over the values of iterable objects like arrays, strings, etc.</p>
+        <pre><code>
+// Example: Iterating over an array
+const fruits = ["apple", "banana", "cherry"];
+for (let fruit of fruits) {
+    console.log(fruit);
+}
+        </code></pre>
+
+        <!-- While Loop -->
+        <h4>4. While Loop</h4>
+        <p>Executes a block of code as long as the condition is true.</p>
+        <pre><code>
+// Example: Print numbers from 1 to 5
+let i = 1;
+while (i <= 5) {
+    console.log(i);
+    i++;
+}
+        </code></pre>
+
+        <!-- Do...while Loop -->
+        <h4>5. Do...while Loop</h4>
+        <p>Executes the code block at least once, and then continues while the condition is true.</p>
+        <pre><code>
+// Example: Print numbers from 1 to 5
+let j = 1;
+do {
+    console.log(j);
+    j++;
+} while (j <= 5);
+        </code></pre>
+    </details>
+
+    <!-- Functions -->
+    <details>
+        <summary>2. Functions</summary>
+        <p>Functions are reusable blocks of code that perform a specific task.</p>
+
+        <h3>1. Basic Function</h3>
+        <pre><code>
+// Example: A simple function
+function greet() {
+    console.log("Hello, world!");
+}
+greet(); // Output: Hello, world!
+        </code></pre>
+
+        <h3>2. Function with Parameters</h3>
+        <p>Functions can accept inputs, known as parameters, to perform operations.</p>
+        <pre><code>
+// Example: Function with parameters
+function sum(a, b) {
+    return a + b;
+}
+console.log(sum(5, 3)); // Output: 8
+        </code></pre>
+
+        <h3>3. Arrow Functions</h3>
+        <p>A concise way to define functions using the <code>=></code> syntax.</p>
+        <pre><code>
+// Example: Arrow function
+const multiply = (a, b) => a * b;
+console.log(multiply(4, 5)); // Output: 20
+        </code></pre>
+    </details>
+
+    <!-- Arguments in JavaScript -->
+    <details>
+        <summary>3. Arguments in JavaScript</summary>
+        <p>In JavaScript, the <code>arguments</code> object is an array-like object accessible inside functions that
+            represents the arguments passed to the function.</p>
+
+        <pre><code>
+// Example: Using the arguments object
+function showArguments() {
+    for (let i = 0; i < arguments.length; i++) {
+        console.log(arguments[i]);
+    }
+}
+showArguments(1, "hello", true);
+// Output:
+// 1
+// hello
+// true
+        </code></pre>
+
+        <h3>Rest Parameters</h3>
+        <p>Instead of using <code>arguments</code>, modern JavaScript allows you to use rest parameters to handle a
+            variable number of arguments.</p>
+        <pre><code>
+// Example: Using rest parameters
+function showRestArgs(...args) {
+    console.log(args); // Output: [1, "hello", true]
+}
+showRestArgs(1, "hello", true);
+        </code></pre>
+    </details>
+
+</body>
+
+</html>

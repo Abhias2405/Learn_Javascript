@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript in Browser</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        details {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #2c2c2c;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #b8d7ff;
+        }
+
+        summary:hover {
+            color: #a1c4ff;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        code {
+            background-color: #333;
+            padding: 5px;
+            border-radius: 4px;
+            color: #d2a8ff;
+            font-family: "Courier New", monospace;
+            font-size: 14px;
+        }
+
+        pre {
+            background-color: #333;
+            padding: 15px;
+            border-radius: 5px;
+            color: #d2a8ff;
+            font-family: "Courier New", monospace;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>JavaScript in the Browser</h1>
+
+    <!-- DevTools Overview -->
+    <details>
+        <summary>1. DevTools in the Browser</summary>
+        <p>Browser DevTools provide a suite of features to debug, inspect, and analyze web pages and applications.
+            Common components:</p>
+        <ul>
+            <li><strong>Console:</strong> Used to log messages, errors, and test JavaScript code.</li>
+            <li><strong>Elements:</strong> Displays the DOM structure of the web page and allows for live editing of
+                HTML/CSS.</li>
+            <li><strong>Network:</strong> Monitors network requests like API calls, images, stylesheets, etc.</li>
+            <li><strong>Sources:</strong> Provides access to the source files, including JavaScript debugging tools.
+            </li>
+            <li><strong>Performance:</strong> Analyzes the page's performance and rendering behavior.</li>
+            <li><strong>Application:</strong> Displays information about storage (cookies, local storage, indexedDB) and
+                Service Workers.</li>
+        </ul>
+    </details>
+
+    <!-- Inserting JS in HTML -->
+    <details>
+        <summary>2. Methods of Inserting JavaScript in HTML</summary>
+        <p>You can include JavaScript in your HTML file in the following ways:</p>
+        <ul>
+            <li><strong>Inline:</strong> Write JavaScript directly inside the <code>script</code> tag in the HTML
+                document.</li>
+            <li><strong>External:</strong> Use the <code>script src</code> attribute to link an external JavaScript
+                file.</li>
+        </ul>
+        <pre>
+// Inline:
+<script>
+    console.log("Hello from inline script!");
+</script>
+
+// External:
+<script src="app.js"></script>
+        </pre>
+    </details>
+
+    <!-- Console Object Methods -->
+    <details>
+        <summary>3. Console Object Methods</summary>
+        <p>The <code>console</code> object in JavaScript provides several methods for logging and debugging:</p>
+        <ul>
+            <li><code>console.log()</code>: Logs a message to the console.</li>
+            <li><code>console.error()</code>: Logs an error message.</li>
+            <li><code>console.warn()</code>: Logs a warning message.</li>
+            <li><code>console.info()</code>: Logs an informational message.</li>
+            <li><code>console.table()</code>: Displays data in a tabular format.</li>
+            <li><code>console.assert()</code>: Logs an error if the condition is false.</li>
+            <li><code>console.clear()</code>: Clears the console.</li>
+        </ul>
+        <pre>
+// Example:
+console.log("This is a log message");
+console.error("This is an error");
+console.warn("This is a warning");
+console.table([{ name: "Alice", age: 25 }, { name: "Bob", age: 30 }]);
+        </pre>
+    </details>
+
+    <!-- Interaction Methods -->
+    <details>
+        <summary>4. Interaction Methods</summary>
+        <p>JavaScript provides methods to interact with the user:</p>
+        <ul>
+            <li><code>alert()</code>: Displays a popup with a message.</li>
+            <li><code>prompt()</code>: Displays a popup to take input from the user.</li>
+            <li><code>confirm()</code>: Displays a popup to confirm an action.</li>
+        </ul>
+        <pre>
+// Example:
+alert("Welcome to the website!");
+let name = prompt("What's your name?");
+let isAdult = confirm("Are you over 18?");
+console.log(`Name: ${name}, Is Adult: ${isAdult}`);
+        </pre>
+    </details>
+
+    <!-- Window Object, BOM, DOM -->
+    <details>
+        <summary>5. Window Object, BOM, DOM</summary>
+        <h3>1. Window Object</h3>
+        <p>The <code>window</code> object is the global object in the browser environment. It represents the browser
+            window and provides methods to interact with it.</p>
+        <ul>
+            <li><code>window.alert()</code>: Displays an alert.</li>
+            <li><code>window.location</code>: Provides the URL of the current page.</li>
+            <li><code>window.history</code>: Allows navigation through the browser history.</li>
+        </ul>
+
+        <h3>2. BOM (Browser Object Model)</h3>
+        <p>The Browser Object Model allows interaction with the browser. Common components:</p>
+        <ul>
+            <li><code>navigator</code>: Provides information about the browser.</li>
+            <li><code>screen</code>: Provides information about the screen resolution.</li>
+            <li><code>location</code>: Allows manipulation of the current URL.</li>
+        </ul>
+        <pre>
+// Example:
+console.log(window.navigator.userAgent);
+console.log(window.screen.width, window.screen.height);
+        </pre>
+
+        <h3>3. DOM (Document Object Model)</h3>
+        <p>The DOM represents the structure of the web page as a tree of objects. You can manipulate elements,
+            attributes, and styles using JavaScript.</p>
+        <pre>
+// Example:
+document.body.style.backgroundColor = "black";
+let heading = document.createElement("h1");
+heading.textContent = "Hello, DOM!";
+document.body.appendChild(heading);
+        </pre>
+    </details>
+
+</body>
+
+</html>

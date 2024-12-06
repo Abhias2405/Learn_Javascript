@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Expressions and Conditions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        details {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #2c2c2c;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #b8d7ff;
+        }
+
+        summary:hover {
+            color: #a1c4ff;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        code {
+            background-color: #333;
+            padding: 2px 5px;
+            border-radius: 4px;
+            color: #ffcc99;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        pre {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            color: #ffcc99;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>JavaScript Expressions and Conditions</h1>
+
+    <!-- Expressions -->
+    <details>
+        <summary>1. Expressions</summary>
+        <p>An expression is any valid unit of code that resolves to a value.</p>
+        <p><strong>Examples:</strong></p>
+        <pre><code>
+// Arithmetic expression
+let sum = 5 + 3; // Resolves to 8
+
+// String concatenation
+let message = "Hello, " + "world!"; // Resolves to "Hello, world!"
+
+// Function call expression
+let square = Math.pow(2, 3); // Resolves to 8
+        </code></pre>
+        <p>Expressions are often used with operators to manipulate data.</p>
+    </details>
+
+    <!-- Operators -->
+    <details>
+        <summary>2. Operators</summary>
+        <p>JavaScript provides several types of operators to perform operations on variables and values.</p>
+
+        <h3>1. Arithmetic Operators</h3>
+        <p>Used to perform mathematical operations.</p>
+        <ul>
+            <li><code>+</code>: Addition</li>
+            <li><code>-</code>: Subtraction</li>
+            <li><code>*</code>: Multiplication</li>
+            <li><code>/</code>: Division</li>
+            <li><code>%</code>: Modulus (Remainder)</li>
+            <li><code>**</code>: Exponentiation</li>
+        </ul>
+        <pre><code>
+// Example
+let a = 10, b = 3;
+console.log(a + b); // 13
+console.log(a % b); // 1
+        </code></pre>
+
+        <h3>2. Assignment Operators</h3>
+        <p>Used to assign values to variables.</p>
+        <ul>
+            <li><code>=</code>: Assign</li>
+            <li><code>+=</code>: Add and assign</li>
+            <li><code>-=</code>: Subtract and assign</li>
+            <li><code>*=</code>: Multiply and assign</li>
+            <li><code>/=</code>: Divide and assign</li>
+        </ul>
+        <pre><code>
+// Example
+let c = 5;
+c += 3; // Equivalent to c = c + 3
+console.log(c); // 8
+        </code></pre>
+
+        <h3>3. Comparison Operators</h3>
+        <p>Used to compare two values.</p>
+        <ul>
+            <li><code>==</code>: Equal (abstract equality)</li>
+            <li><code>===</code>: Strict equal</li>
+            <li><code>!=</code>: Not equal</li>
+            <li><code>!==</code>: Strict not equal</li>
+            <li><code>&gt;</code>: Greater than</li>
+            <li><code>&lt;</code>: Less than</li>
+        </ul>
+        <pre><code>
+// Example
+let x = 10, y = "10";
+console.log(x == y); // true (abstract equality)
+console.log(x === y); // false (strict equality)
+        </code></pre>
+
+        <h3>4. Logical Operators</h3>
+        <p>Used to perform logical operations.</p>
+        <ul>
+            <li><code>&&</code>: Logical AND</li>
+            <li><code>||</code>: Logical OR</li>
+            <li><code>!</code>: Logical NOT</li>
+        </ul>
+        <pre><code>
+// Example
+let isAdult = true, hasID = false;
+console.log(isAdult && hasID); // false
+console.log(isAdult || hasID); // true
+        </code></pre>
+
+        <h3>5. Comments</h3>
+        <p>Comments are used to explain code or make it more readable.</p>
+        <ul>
+            <li><code>//</code>: Single-line comment</li>
+            <li><code>/* */</code>: Multi-line comment</li>
+        </ul>
+        <pre><code>
+// This is a single-line comment
+let name = "John"; /* This is a multi-line comment */
+        </code></pre>
+    </details>
+
+    <!-- Conditional Statements -->
+    <details>
+        <summary>3. Conditional Statements</summary>
+        <p>Conditional statements control the flow of execution based on a condition.</p>
+
+        <h3>1. If Statement</h3>
+        <pre><code>
+// Example
+let age = 18;
+if (age >= 18) {
+    console.log("You are eligible to vote.");
+}
+        </code></pre>
+
+        <h3>2. If-Else Statement</h3>
+        <pre><code>
+// Example
+let isRainy = true;
+if (isRainy) {
+    console.log("Take an umbrella.");
+} else {
+    console.log("Enjoy the sunshine.");
+}
+        </code></pre>
+
+        <h3>3. If-Else If-Else Statement</h3>
+        <pre><code>
+// Example
+let marks = 85;
+if (marks >= 90) {
+    console.log("Grade: A");
+} else if (marks >= 75) {
+    console.log("Grade: B");
+} else {
+    console.log("Grade: C");
+}
+        </code></pre>
+
+        <h3>4. Ternary Operator</h3>
+        <p>A shorthand for if-else.</p>
+        <pre><code>
+// Example
+let isWeekend = false;
+let activity = isWeekend ? "Relax at home" : "Go to work";
+console.log(activity); // Output: Go to work
+        </code></pre>
+    </details>
+
+</body>
+
+</html>

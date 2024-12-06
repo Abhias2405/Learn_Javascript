@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Strings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        details {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #2c2c2c;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #b8d7ff;
+        }
+
+        summary:hover {
+            color: #a1c4ff;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        code {
+            background-color: #333;
+            padding: 2px 5px;
+            border-radius: 4px;
+            color: #d2a8ff;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        pre {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            color: #d2a8ff;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>JavaScript Strings</h1>
+
+    <!-- Definition -->
+    <details>
+        <summary>1. What is a String?</summary>
+        <p>A string is a sequence of characters enclosed in quotes (single, double, or backticks). Strings are used to
+            represent text in JavaScript.</p>
+        <pre><code>
+// Example:
+let singleQuote = 'Hello';
+let doubleQuote = "World";
+let templateLiteral = `Hello World`;
+
+console.log(singleQuote); // Output: Hello
+console.log(doubleQuote); // Output: World
+console.log(templateLiteral); // Output: Hello World
+        </code></pre>
+    </details>
+
+    <!-- Template Literals -->
+    <details>
+        <summary>2. Template Literals</summary>
+        <p>Template literals allow embedded expressions and multi-line strings using backticks (<code>`</code>) instead
+            of quotes.</p>
+        <h3>Features:</h3>
+        <ul>
+            <li>String Interpolation (inserting variables): <code>${expression}</code></li>
+            <li>Multi-line strings</li>
+        </ul>
+        <pre><code>
+// Example: String Interpolation
+let name = "Abhi";
+let age = 25;
+let greeting = `Hello, my name is ${name} and I am ${age} years old.`;
+
+console.log(greeting);
+// Output: Hello, my name is Abhi and I am 25 years old.
+
+// Example: Multi-line Strings
+let multiLine = `This is a
+multi-line
+string.`;
+
+console.log(multiLine);
+// Output:
+// This is a
+// multi-line
+// string.
+        </code></pre>
+    </details>
+
+    <!-- Escape Sequence Characters -->
+    <details>
+        <summary>3. Escape Sequence Characters</summary>
+        <p>Escape sequences allow special characters to be included in strings.</p>
+        <h3>Common Escape Sequences:</h3>
+        <ul>
+            <li><code>\n</code>: New line</li>
+            <li><code>\t</code>: Tab</li>
+            <li><code>\\</code>: Backslash</li>
+            <li><code>\'</code>: Single quote</li>
+            <li><code>\"</code>: Double quote</li>
+        </ul>
+        <pre><code>
+// Example:
+let text = "This is a line.\nThis is another line.\tTabbed in.";
+console.log(text);
+// Output:
+// This is a line.
+// This is another line.   Tabbed in.
+        </code></pre>
+    </details>
+
+    <!-- String Properties and Methods -->
+    <details>
+        <summary>4. String Properties and Methods</summary>
+        <h3>1. Properties</h3>
+        <ul>
+            <li><code>length</code>: Returns the number of characters in the string.</li>
+        </ul>
+        <pre><code>
+// Example:
+let name = "JavaScript";
+console.log(name.length); // Output: 10
+        </code></pre>
+
+        <h3>2. Methods</h3>
+        <ul>
+            <li><code>toUpperCase()</code>: Converts all characters to uppercase.</li>
+            <li><code>toLowerCase()</code>: Converts all characters to lowercase.</li>
+            <li><code>slice(start, end)</code>: Extracts a section of a string.</li>
+            <li><code>replace(oldValue, newValue)</code>: Replaces a part of the string.</li>
+            <li><code>concat()</code>: Combines two or more strings.</li>
+            <li><code>trim()</code>: Removes whitespace from both ends of the string.</li>
+        </ul>
+        <pre><code>
+// Example:
+let str = "  Hello JavaScript!  ";
+console.log(str.toUpperCase()); // Output: HELLO JAVASCRIPT!
+console.log(str.toLowerCase()); // Output: hello javascript!
+console.log(str.slice(2, 7));   // Output: Hello
+console.log(str.replace("JavaScript", "World")); // Output:   Hello World!  
+console.log(str.concat(" It's fun!")); // Output:   Hello JavaScript!   It's fun!
+console.log(str.trim());        // Output: Hello JavaScript!
+        </code></pre>
+    </details>
+
+    <!-- Strings are Immutable -->
+    <details>
+        <summary>5. Strings are Immutable</summary>
+        <p>In JavaScript, strings are immutable, meaning their content cannot be changed after they are created. Any
+            operation that seems to modify a string actually creates a new string.</p>
+        <pre><code>
+// Example:
+let original = "Hello";
+let modified = original.replace("H", "J");
+
+console.log(original); // Output: Hello
+console.log(modified); // Output: Jello
+        </code></pre>
+    </details>
+
+    <!-- Indexing Strings -->
+    <details>
+        <summary>6. String Indexing</summary>
+        <p>Strings can be accessed using their index, where the first character is at index 0.</p>
+        <pre><code>
+// Example:
+let name = "Abhi";
+console.log(name[0]); // Output: A
+console.log(name[1]); // Output: b
+        </code></pre>
+    </details>
+
+</body>
+
+</html>
